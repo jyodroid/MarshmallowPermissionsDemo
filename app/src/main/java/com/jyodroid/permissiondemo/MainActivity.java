@@ -107,15 +107,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onPause() {
         super.onPause();
-        if (mRecorder != null) {
-            mRecorder.release();
-            mRecorder = null;
-        }
-
-        if (mPlayer != null) {
-            mPlayer.release();
-            mPlayer = null;
-        }
+        releaseResources();
     }
 
     @Override
@@ -178,17 +170,8 @@ public class MainActivity extends AppCompatActivity {
                         handleMessage);
 
             } else {
+                releaseResources();
                 finish();
-            }
-        } else {
-            if (mRecorder != null) {
-                mRecorder.release();
-                mRecorder = null;
-            }
-
-            if (mPlayer != null) {
-                mPlayer.release();
-                mPlayer = null;
             }
         }
     }
@@ -245,6 +228,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void stopPlaying() {
+        if (mPlayer != null) {
+            mPlayer.release();
+            mPlayer = null;
+        }
+    }
+
+    private void releaseResources(){
+        if (mRecorder != null) {
+            mRecorder.release();
+            mRecorder = null;
+        }
+
         if (mPlayer != null) {
             mPlayer.release();
             mPlayer = null;
