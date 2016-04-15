@@ -17,6 +17,14 @@ Build for minSdkVersion and targetSdkVersion 23
 
 You will need run on a device or emulator with Android 6 (Marshmallow).
 
+### Use
+
+- In first view you can use speech recognition with no additional permission by pressing the microphone button and you will see your speech as text.
+- If you press "RECORD ME" button you will start a new view.
+- If you don't have WRITE_EXTERNAL_STORAGE or RECORD_AUDIO permission you will be prompt to grant those permission.
+- after you grant the permissions you can touch the microphone button to start recording and press it again when you're done 
+- after record something you touch the play button to reproduce the recorded file and press again to stop it.
+
 License
 ----
 

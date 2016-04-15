@@ -1,6 +1,8 @@
 package com.jyodroid.permissiondemo;
 
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Build;
@@ -79,6 +81,9 @@ public class RecordActivity extends AppCompatActivity {
                 mStartPlaying = !mStartPlaying;
             }
         });
+
+        mPlayButton.setEnabled(false);
+        mPlayButton.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
     }
 
     @Override
@@ -180,9 +185,15 @@ public class RecordActivity extends AppCompatActivity {
 
     private void onRecord(boolean start) {
         if (start) {
+            mPlayButton.setEnabled(false);
+            mRecordButton.setImageDrawable(getDrawable(android.R.drawable.ic_menu_close_clear_cancel));
             startRecording();
         } else {
             stopRecording();
+            mPlayButton.setBackgroundTintList(
+                    ColorStateList.valueOf(getColor(android.R.color.holo_green_light)));
+            mRecordButton.setImageDrawable(getDrawable(android.R.drawable.ic_btn_speak_now));
+            mPlayButton.setEnabled(true);
         }
     }
 
@@ -212,9 +223,13 @@ public class RecordActivity extends AppCompatActivity {
 
     private void onPlay(boolean start) {
         if (start) {
+            mRecordButton.setEnabled(false);
+            mPlayButton.setImageDrawable(getDrawable(android.R.drawable.ic_media_pause));
             startPlaying();
         } else {
             stopPlaying();
+            mRecordButton.setEnabled(true);
+            mPlayButton.setImageDrawable(getDrawable(android.R.drawable.ic_media_play));
         }
     }
 
