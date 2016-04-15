@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean mStartPlaying = true;
 
     private boolean isAskingForPermission = false;
-    private PermissionsHelper.HandleMessage handleMessage;
+    private PermissionsUtility.HandleMessage handleMessage;
 
     public MainActivity() {
         mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -87,12 +87,12 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !isAskingForPermission) {
             try {
                 //Obtain permission type required
-                int requiredPermissionType = PermissionsHelper.obtainPermissionType(this);
-                if (requiredPermissionType != PermissionsHelper.MY_PERMISSIONS_UNKNOWN) {
+                int requiredPermissionType = PermissionsUtility.obtainPermissionType(this);
+                if (requiredPermissionType != PermissionsUtility.MY_PERMISSIONS_UNKNOWN) {
                     isAskingForPermission = true;
                     //Prepare Thread to show message and handler to management
-                    handleMessage = new PermissionsHelper.HandleMessage();
-                    PermissionsHelper.requestCardPicturePermissions(
+                    handleMessage = new PermissionsUtility.HandleMessage();
+                    PermissionsUtility.requestCardPicturePermissions(
                             requiredPermissionType, this, handleMessage);
                 }
             } catch (Exception e) {
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         isAskingForPermission = false;
         boolean permissionRequiredGranted = false;
         switch (requestCode) {
-            case PermissionsHelper.MY_PERMISSIONS_MULTIPLE:
+            case PermissionsUtility.MY_PERMISSIONS_MULTIPLE:
                 if (grantResults.length > 0) {
                     for (int grantedCode : grantResults) {
                         permissionRequiredGranted = true;
@@ -139,14 +139,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 break;
-            case PermissionsHelper.MY_PERMISSIONS_REQUEST_AUDIO_RECORD_PERMISSION:
+            case PermissionsUtility.MY_PERMISSIONS_REQUEST_AUDIO_RECORD_PERMISSION:
                 if (grantResults.length > 0 &&
                         PackageManager.PERMISSION_GRANTED == grantResults[0]) {
                     Log.v(LOG_TAG, "Camera permission granted!!");
                     permissionRequiredGranted = true;
                 }
                 break;
-            case PermissionsHelper.MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION:
+            case PermissionsUtility.MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE_PERMISSION:
                 if (grantResults.length > 0 &&
                         PackageManager.PERMISSION_GRANTED == grantResults[0]) {
                     Log.v(LOG_TAG, "Write external storage permission granted!!");
@@ -160,21 +160,21 @@ public class MainActivity extends AppCompatActivity {
 
             //Verify if user check on "Never ask again" and take him to application settings to
             //Grant permission manually
-            if (PermissionsHelper.isCheckedDontAskAgain(
-                    this, PermissionsHelper.RECORD_PERMISSION) ||
-                    PermissionsHelper.isCheckedDontAskAgain(
-                            this, PermissionsHelper.WRITE_EXTERNAL_STORAGE_PERMISSION)) {
+            if (PermissionsUtility.isCheckedDontAskAgain(
+                    this, PermissionsUtility.RECORD_PERMISSION) ||
+                    PermissionsUtility.isCheckedDontAskAgain(
+                            this, PermissionsUtility.WRITE_EXTERNAL_STORAGE_PERMISSION)) {
                 if (handleMessage == null) {
-                    handleMessage = new PermissionsHelper.HandleMessage();
+                    handleMessage = new PermissionsUtility.HandleMessage();
                 }
                 isAskingForPermission = true;
-                PermissionsHelper.showPermissionMessage(
+                PermissionsUtility.showPermissionMessage(
                         "Permissions for settings",
                         "Get me to settings",
                         "Latter",
                         null,
                         this,
-                        PermissionsHelper.MY_PERMISSIONS_UNKNOWN,
+                        PermissionsUtility.MY_PERMISSIONS_UNKNOWN,
                         handleMessage);
 
             } else {

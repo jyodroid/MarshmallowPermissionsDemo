@@ -1,6 +1,4 @@
-package com.jyodroid.permissiondemo;/*
- * Copyright (c) EverCheck 2016. info@evercheck.com.
- */
+package com.jyodroid.permissiondemo;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -27,7 +25,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * Created by johntangarife on 3/15/16.
+ * Created by johntangarife on 4/15/16.
  * Helps update or access application resources and ask for permissions at runtime in new Android
  * devices with Marshmallow (API 23) or newest.
  * <p/>
@@ -37,7 +35,7 @@ import java.lang.annotation.RetentionPolicy;
  */
 
 @TargetApi(Build.VERSION_CODES.M)
-public class PermissionsHelper {
+public class PermissionsUtility {
 
     private static final String PACKAGE_URI = "package:";
 
@@ -177,11 +175,11 @@ public class PermissionsHelper {
                 String[] multiplePermissionList = {
                         RECORD_PERMISSION, WRITE_EXTERNAL_STORAGE_PERMISSION};
                 //Verify if you should explain why you need permission
-                if (PermissionsHelper.shouldAskForPermission(
+                if (PermissionsUtility.shouldAskForPermission(
                         activity, WRITE_EXTERNAL_STORAGE_PERMISSION) ||
                         shouldAskForPermission(activity, RECORD_PERMISSION)) {
 
-                    PermissionsHelper
+                    PermissionsUtility
                             .showPermissionMessage(
                                     "We will need permission",
                                     okButtonText,
