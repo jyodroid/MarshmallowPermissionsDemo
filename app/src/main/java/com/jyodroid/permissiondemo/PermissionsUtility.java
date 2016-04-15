@@ -161,7 +161,7 @@ public class PermissionsUtility {
      * @param activity       from where the method is called
      * @param messageHandler for control message state in a separated thread
      */
-    public static void requestCardPicturePermissions(
+    public static void requestFeaturePermissions(
             @PermissionType int permissionType,
             @NonNull Activity activity,
             @NonNull HandleMessage messageHandler) {

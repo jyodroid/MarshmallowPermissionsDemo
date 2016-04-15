@@ -99,7 +99,7 @@ public class RecordActivity extends AppCompatActivity {
                     isAskingForPermission = true;
                     //Prepare Thread to show message and handler to management
                     handleMessage = new PermissionsUtility.HandleMessage();
-                    PermissionsUtility.requestCardPicturePermissions(
+                    PermissionsUtility.requestFeaturePermissions(
                             requiredPermissionType, this, handleMessage);
                 }
             } catch (Exception e) {
