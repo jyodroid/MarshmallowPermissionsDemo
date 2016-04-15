@@ -15,7 +15,7 @@ Build for minSdkVersion and targetSdkVersion 23
 
 ### Installation
 
-You will need run in a device or emulator with Android 6 (Marshmallow).
+You will need run on a device or emulator with Android 6 (Marshmallow).
 
 License
 ----
