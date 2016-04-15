@@ -2,11 +2,11 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/darker_gray"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
     android:fitsSystemWindows="true"
-    tools:context="com.jyodroid.permissiondemo.MainActivity">
+    tools:context=".MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -24,40 +24,29 @@
 
     <include layout="@layout/content_main" />
 
-    <!--<android.support.design.widget.CoordinatorLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
-
-        <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_gravity="bottom"-->
-        <!--android:layout_margin="@dimen/fab_margin"-->
-        <!--android:gravity="center|bottom"-->
-        <!--android:orientation="vertical">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="end"
+        android:orientation="vertical">
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_start_recording"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_margin="@dimen/fab_margin"
-            android:elevation="@dimen/fab_margin"
-            android:src="@android:drawable/ic_btn_speak_now"
-            app:backgroundTint="@android:color/holo_red_light"
-            app:borderWidth="0dp" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_play_button"
+            android:id="@+id/fab_speech"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
-            android:elevation="@dimen/fab_margin"
-            android:layout_gravity="bottom|end"
-            android:src="@android:drawable/ic_media_play"
-            app:backgroundTint="@android:color/holo_green_light"
-            app:borderWidth="0dp"
-            app:fabSize="mini" />
-        <!--</LinearLayout>-->
-    <!--</android.support.design.widget.CoordinatorLayout>-->
+            app:backgroundTint="@android:color/background_light"
+            android:src="@android:drawable/ic_btn_speak_now" />
+
+        <Button
+            android:id="@+id/btn_record_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:text="record me"/>
+
+    </LinearLayout>
+
+
 </android.support.design.widget.CoordinatorLayout>

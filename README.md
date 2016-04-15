@@ -17,10 +17,6 @@ Build for minSdkVersion and targetSdkVersion 23
 
 You will need run in a device or emulator with Android 6 (Marshmallow).
 
-### Todos
-
- - Add [SpeechRecognizer](http://developer.android.com/intl/es/reference/android/speech/SpeechRecognizer.html) so we can test that implicit intents doesn't require any permission from this app.
-
 License
 ----
 
