@@ -25,6 +25,9 @@ You will need run on a device or emulator with Android 6 (Marshmallow).
 - after you grant the permissions you can touch the microphone button to start recording and press it again when you're done 
 - after record something you touch the play button to reproduce the recorded file and press again to stop it.
 
+### Screenshots
+![voice recorder](screenshots/speech_recognition.png "SpeechIntent uses Microphone without permissions")  ![speech recognition](screenshots/permissions_at_runtime.png "You will need permissions to record your voice and then store it")
+
 License
 ----
 

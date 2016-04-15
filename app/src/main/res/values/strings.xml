@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Permission Demo</string>
     <string name="rec_prompt">Rec something and then play it!</string>
-    <string name="title_activity_speach">SpeachActivity</string>
+    <string name="title_activity_speach">Record Activity</string>
 </resources>
